@@ -195,6 +195,10 @@ export const Library = withRouter(( props:LibraryProps) => {
       {
         text: 'Sign In',
         onClick: () => history.push('/signin')
+      },
+      {
+        text: 'Survey',
+        onClick: () => history.push('/survey')
       }
     ]
   

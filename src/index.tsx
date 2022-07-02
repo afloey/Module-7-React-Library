@@ -8,7 +8,7 @@ import { firebaseConfig } from './firebaseConfig'
 import 'firebase/auth'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
-import { Survey } from './components' //I'm not sure why there are problems with this taking- aware of the error message but leaving it in here
+import Survey from './components/Survey/Survey';
 
 let myTitle = "Ashley's Library"
 

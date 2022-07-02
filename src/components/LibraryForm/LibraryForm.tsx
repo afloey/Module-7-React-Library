@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { chooseTitle, chooseAuthor, chooseStyle, chooseISBN } from '../../redux/slices/RootSlice';
+import {chooseName, chooseEmail, chooseTitle, chooseAuthor, chooseStyle, chooseISBN } from '../../redux/slices/RootSlice';
 import { Input } from '../SharedComponents/Input'
 import { Button } from '@material-ui/core'
 import { server_calls } from '../../api'
@@ -13,7 +13,8 @@ interface LibraryFormProps {
 }
 
 interface LibraryState {
-    name: unknown;
+    name: string;
+    email: string;
     title: string;
     author: string;
     style: string;
@@ -38,6 +39,8 @@ export const LibraryForm = (props:LibraryFormProps) => {
             event.target.reset()
         } else {
             // Dispatch basically updates our state / Redux store
+            dispatch(chooseName(data.name))
+            dispatch(chooseEmail(data.email))
             dispatch(chooseTitle(data.title));
             dispatch(chooseAuthor(data.author));
             dispatch(chooseStyle(data.style));
@@ -50,6 +53,14 @@ export const LibraryForm = (props:LibraryFormProps) => {
     return (
         <div>
             <form onSubmit = {handleSubmit(onSubmit)}>
+                <div>
+                    <label htmlFor="name">Contact Name</label>
+                    <input {...register('name')} name='name' placeholder='Name' />
+                </div>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input {...register('email')} name='email' placeholder='Email' />
+                </div>
                 <div>
                     <label htmlFor="title">Title</label>
                     <Input {...register('title')} name="title" placeholder='Title'/>

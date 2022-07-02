@@ -11,6 +11,8 @@ import { LibraryForm } from '../LibraryForm'
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90, hide: true },
+    { field: 'name', headerName: 'Name', flex: 1 },
+    { field: 'email', headerName: 'Email', flex: 1 },
     { field: 'title', headerName: 'Title', flex: 1 },
     { field: 'author', headerName: 'Author', flex: 1 },
     { field: 'style', headerName: 'Style', flex: 1 },
